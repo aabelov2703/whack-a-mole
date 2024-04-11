@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whack a mole</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="nav-btn">
+    <button class="btn" onclick="getName()">Start</button>
+    <button class="btn" onclick="getRecords()">Records</button>
+    <button class="btn" onclick="getRules()">Rules</button>
+  </div>
+  <div class="game-stats">
+    <div class="count-down">Seconds left: <span id="cd">30</span></div>
+    <div class="level">Level: <span id="lvl">1</span></div>
+    <div class="attempts">Attempts: <span id="attms">15</span></div>
+  </div>
+  <h1>Whack-a-mole
+    <span class="score">10</span>
+  </h1>
+  <p class="total">total kicks: <span id="ttl">0</span></p>
+  <div class="base-container">
+    <div class="l1">
+      <div class="hole hole1 up"><div class="mole"></div></div>
+      <div class="hole hole2 up"><div class="mole"></div></div>
+      <div class="hole hole3 up"><div class="mole"></div></div>
+    </div>
+    <div class="l2">
+      <div class="hole hole4 up"><div class="mole"></div></div>
+      <div class="hole hole5 up"><div class="mole"></div></div>
+      <div class="hole hole6 up"><div class="mole"></div></div>
+    </div>
+    <div class="l3">
+      <div class="hole hole7 up"><div class="mole"></div></div>
+      <div class="hole hole8 up"><div class="mole"></div></div>
+      <div class="hole hole9 up"><div class="mole"></div></div>
+    </div>
+  </div>
+  <div class="overlay" id="player">
+    <div class="flex-modal">
+      <div class="modal" id="player-modal">
+        <input class="btn" id="player-name" type="text" value="Player Name" autocomplete="off">
+        <span class="btn close-modal" onclick="startGame()">Start</span>
+      </div>
+    </div>
+  </div>
+  <div class="overlay" id="records">
+    <div class="flex-modal">
+      <div class="modal" id="player-records">
+        <span class="close-modal" onclick="closeModal()">Close</span>
+        <h2>High score table</h2>
+        <img id="records-img" src="img/winner.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="overlay" id="rules">
+    <div class="flex-modal">
+      <div class="modal">
+        <span class="close-modal" onclick="closeModal()">Close</span>
+        <h2>Rules</h2>
+        <p>30 seconds are given from the begining of the game</p>
+        <p>Each successfull attempt earns you an additional 3 secs (not more than 30 secs)</p>
+        <p>Your level increases every next 5 points</p>
+        <p>A limit number of attempts are given for each level</p>
+        <p>Upon reaching 15 points, the maximum number of holes opens</p>
+        <p>Also each level-up reduces mole appearence time</p>
+        <img id="rules-img" src="img/think.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="imgs catch"></div>
+  <audio data-key="up" src="sounds/appearence.mp3"></audio>
+  <audio data-key="miss" src="sounds/fail.mp3"></audio>
+  <audio data-key="hit" src="sounds/splash.mp3"></audio>
+  <audio data-key="end" src="sounds/end.mp3"></audio>
+  <script src="app.js"></script>
+
+  <div id="preload">
+    <div>Loading... Wait, please...</div>  
+  </div>
+</body>
+</html>
